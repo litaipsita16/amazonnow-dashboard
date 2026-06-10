@@ -31,12 +31,13 @@ jobs:
 
       - name: Run dashboard pipeline
         run: |
-          python amazonnow_pipeline_v5_final.py
+         python amazonnow_pipeline_v5_final.py
+         cp amazonnow_dashboard_live.html index.html
 
       - name: Commit updated dashboard
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add amazonnow_dashboard_live.html
+          git add amazonnow_dashboard_live.html index.html
           git commit -m "Auto update dashboard" || echo "No changes"
           git push
